@@ -1,0 +1,117 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 90px;
+    padding-bottom: 20px;
+    padding-left:0px;
+    
+}
+
+.navcss {
+position:relative;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 50px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.label {
+    padding:6px 12px;
+
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+.ImageBackground {
+    background-image: url("~/Images/ferring.PNG");
+    background-color: #cccccc;
+}
+#sidebar {
+   
+
+    min-width: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+        
+}
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: #000000;
+    color: #fff;
+    transition: all 0.3s;
+}
+.wrapper {
+    /*display: flex;
+    width: 100%;
+    align-items: stretch;*/
+    float:left;
+    padding-left:0px;
+}
+#sidebar.active {
+    margin-left: -400px;
+}
+#sidebar .sidebar-header {
+    padding: 20px;  
+    background: #000000;
+}
+
+#sidebar ul.components {
+    padding: 0px 0;
+    color:black;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    background:#000000
+}
+
+    #sidebar ul li a:hover {
+        color: #000000;
+        background: #808080;
+    }
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #000000;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #000000;
+}

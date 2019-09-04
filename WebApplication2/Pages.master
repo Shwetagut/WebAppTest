@@ -1,0 +1,209 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Pages.master.cs" Inherits="WebApplication2.Pages" %>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body class="body">
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+<%--    <div class="wrapper">
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <li class="active">
+                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                </ul>
+    </nav>
+    <div id="content">
+    </div>--%>
+        <form runat="server">
+    <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+            <div class="container body-content" style="left:100px">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+                <!------------NAVBAR-------------------------------------------------->
+        <nav class="topnav nav-navbar navbar-inverse fixed-top">
+            <div class="container">
+                <div class="">
+                    <a class="" runat="server" href="~/"></a>
+                </div>
+
+                <<div class="">
+                    <ul class="nav navbar-nav">
+                        <li><asp:Image ID="Image1" ImageUrl="~/images/ferring.PNG" runat="server" />
+                        
+
+                    </ul>
+                    <div class="nav navbar-nav navbar-right navbar-inner">
+                      <asp:ImageButton ID="ImageButton1" style="padding: 12px" ImageUrl="~/Images/logout.PNG" runat="server" />
+                        </div>
+                </div>  
+
+            </div>
+        </nav>
+                </div>
+                <div class="container">
+                <div class="wrapper" style="float:left;">
+    <!-- Sidebar ---------------------------------------------------------------------------------------------------->
+                        <div id="content">
+
+        <nav class="navbar navbar-expand-lg" style="padding:0px" >
+            <div>
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info" style="width:250px;">
+                    Toggle Sidebar
+                </button>
+            </div>
+        </nav>
+    </div>
+    <nav id="sidebar"  style="top:80px; color:white" >
+        <div class="sidebar-header">
+            <h3>Page Navigation</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active" >
+                <a href="#homeSubmenu" data-toggle="collapse" style="color:white"; aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#" style="color:white">Home 1 </a>
+                    </li>
+                    <li>
+                        <a href="#" style="color:white">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#" style="color:white">Home 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" style="color:white">About</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" style="color:white" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#" style="color:white">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#" style="color:white">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#" style="color:white">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" style="color:white">Portfolio</a>
+            </li>
+            <li>
+                <a href="#" style="color:white">Contact</a>
+            </li>
+        </ul>
+
+    </nav>
+    <!-- Page Content -->
+
+    <%--<div class="container-fluid navcss">
+    <div class="row">
+        <div class="col-xs-4">
+<div class="dropdown">
+  <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Time Frame
+  </button>
+  <div class="dropdown-menu" "dropdownMenuButton">
+    <a class="dropdown-item"  href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+    </div>
+    </div>
+
+        <div class="col-xs-4">
+            <div class="dropdown">
+  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Business Unit
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+    </div>
+        </div>
+        <div class="col-xs-4">
+         <div class="dropdown">
+  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Role
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+    </div>
+        </>
+        </div>
+        </div>
+        </div>--%>
+                    <%--<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>--%>
+
+</div>
+           
+        </div>
+            </form>
+<footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer></body>
+     
+</html>
